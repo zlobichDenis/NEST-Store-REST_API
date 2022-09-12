@@ -1,4 +1,4 @@
-import { TopLevelCategory } from '../top-page.model';
+import { TopLevelCategory } from '../../../shared/types';
 
 export class FindTopPageDto {
 	firstCategory: TopLevelCategory;
