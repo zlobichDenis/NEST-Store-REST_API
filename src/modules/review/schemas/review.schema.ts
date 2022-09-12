@@ -3,7 +3,7 @@ import { Document } from 'mongoose';
 
 export type ReviewDocument = Review & Document;
 
-@Schema()
+@Schema({ timestamps: true })
 export class Review {
 	@Prop()
 	name: string;

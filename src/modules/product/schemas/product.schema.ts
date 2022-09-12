@@ -3,7 +3,15 @@ import { Document } from 'mongoose';
 
 export type ProductDocument = Product & Document;
 
-@Schema()
+class ProductCharacteristic {
+	@Prop()
+	name: string;
+
+	@Prop()
+	value: string;
+}
+
+@Schema({ timestamps: true })
 export class Product {
 	@Prop()
 	image: string;
@@ -34,16 +42,14 @@ export class Product {
 	@Prop()
 	disAdvantages: string;
 
-	@Prop()
+	@Prop([String])
 	categories: string[];
 
-	@Prop()
-	tags: string;
+	@Prop([String, { _id: false }])
+	tags: string[];
 
-	@Prop()
-	characteristics: {
-		[key: string]: string;
-	};
+	@Prop([ProductCharacteristic])
+	characteristics: ProductCharacteristic[];
 }
 
 export const ProductSchema = SchemaFactory.createForClass(Product);

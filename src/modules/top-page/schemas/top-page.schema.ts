@@ -5,14 +5,36 @@ import { TopLevelCategory } from '../../../shared/types';
 
 export type TopPageDocument = TopPage & Document;
 
-@Schema()
-export class TopPage {
+export class HhData {
+	@Prop()
+	count: number;
 
 	@Prop()
+	juniorSalary: number;
+
+	@Prop()
+	middleSalary: number;
+
+	@Prop()
+	seniorSalary: number;
+}
+
+export class TopPageAdvantage {
+	title: string;
+	description: string;
+}
+
+@Schema({ timestamps: true })
+export class TopPage {
+
+	@Prop({ enum: TopLevelCategory })
 	fistCategory: TopLevelCategory;
 
 	@Prop()
 	secondCategory: string;
+
+	@Prop({ unique: true })
+	alias: string;
 
 	@Prop()
 	title: string;
@@ -20,28 +42,20 @@ export class TopPage {
 	@Prop()
 	category: string;
 
-	@Prop()
-	advantages: {
-		title: string;
-		description: string;
-	}[];
+	@Prop([TopPageAdvantage])
+	advantages: TopPageAdvantage;
 
 	@Prop()
 	seoText: string;
 
-	@Prop()
+	@Prop([String])
 	tags: string[];
 
 	@Prop()
 	tagsTitle: string;
 
 	@Prop()
-	hh?: {
-		count: number;
-		juniorSalary: number;
-		middleSalary: number;
-		seniorSalary: number;
-	};
+	hh?: HhData;
 }
 
 export const TopPageSchema = SchemaFactory.createForClass(TopPage);

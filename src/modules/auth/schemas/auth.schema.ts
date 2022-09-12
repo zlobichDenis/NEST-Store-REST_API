@@ -5,7 +5,7 @@ export type AuthDocument = Auth & Document;
 
 @Schema({ timestamps: true })
 export class Auth {
-	@Prop()
+	@Prop({ unique: true })
 	email: string;
 
 	@Prop()
