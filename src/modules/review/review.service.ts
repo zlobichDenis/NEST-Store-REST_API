@@ -16,14 +16,14 @@ export class ReviewService {
     }
 
     async delete(id: string): Promise<ReviewDocument | null> {
-        return this.reviewModel.findByIdAndDelete(id).exec();
+        return this.reviewModel.findByIdAndDelete(id);
     }
 
     async findByProductId(id: string): Promise<ReviewDocument[]> {
-        return this.reviewModel.find({ productId: id }).exec();
+        return this.reviewModel.find({ productId: id });
     }
 
     async deleteByProductId(id: string) {
-        return this.reviewModel.deleteMany({ productId: id }).exec();
+        return this.reviewModel.deleteMany({ productId: id });
     }
 }
