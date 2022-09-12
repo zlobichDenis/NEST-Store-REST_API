@@ -2,8 +2,6 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { AuthModule } from './modules/auth/auth.module';
 import { TopPageModule } from './modules/top-page/top-page.module';
 import { ProductModule } from './modules/product/product.module';
@@ -25,7 +23,5 @@ import { getMongoConfig } from './config/mongo.config';
 		useFactory: getMongoConfig
 	})
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}
