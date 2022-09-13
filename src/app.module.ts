@@ -21,7 +21,7 @@ import { getMongoConfig } from './config/mongo.config';
 		imports: [ConfigModule],
 		inject: [ConfigService],
 		useFactory: getMongoConfig
-	})
+	}),
   ],
 })
 export class AppModule {}
