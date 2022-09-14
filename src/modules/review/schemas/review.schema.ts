@@ -17,7 +17,7 @@ export class Review {
 	@Prop()
 	rating: number;
 
-	@Prop()
+	@Prop({ type: Types.ObjectId })
 	productId: Types.ObjectId;
 }
 

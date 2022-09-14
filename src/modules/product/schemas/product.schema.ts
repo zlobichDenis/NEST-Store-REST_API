@@ -29,8 +29,6 @@ export class Product {
 	credit: number;
 
 	@Prop()
-
-	@Prop()
 	calculatedRating: number;
 
 	@Prop()

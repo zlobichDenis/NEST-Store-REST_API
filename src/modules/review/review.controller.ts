@@ -16,6 +16,7 @@ import { JwtAuthGuard } from '../auth/guards/jwt.guard';
 import { CreateReviewDto } from './dto/create-review.dto';
 import { ReviewService } from './review.service';
 import { errorMessages } from './constants';
+import { CreateReviewPipe } from './pipes/create-review.pipe';
 
 @UseGuards(JwtAuthGuard)
 @Controller('review')
@@ -26,7 +27,7 @@ export class ReviewController {
 
 	@UsePipes(new ValidationPipe())
 	@Post('create')
-	async create(@Body() dto: CreateReviewDto) {
+	async create(@Body(new CreateReviewPipe()) dto: CreateReviewDto) {
 		return this.reviewService.create(dto);
 	}
 
