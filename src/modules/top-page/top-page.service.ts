@@ -38,6 +38,17 @@ export class TopPageService {
 		return this.topPageModule.find({ category: dto.firstCategory });
 	}
 
+	async findByText(text: string) {
+		return this.topPageModule.find(
+			{
+				$text: {
+					$search: text,
+					$caseSensitive: false,
+				}
+			}
+			);
+	}
+
 	async delete(id: string) {
 		return this.topPageModule.findByIdAndDelete(id);
 	}

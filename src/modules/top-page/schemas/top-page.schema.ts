@@ -38,22 +38,22 @@ export class TopPage {
 	@Prop({ unique: true })
 	alias: string;
 
-	@Prop()
+	@Prop({ index: 'text' })
 	title: string;
 
-	@Prop()
+	@Prop({ index: 'text' })
 	category: string;
 
 	@Prop({ type: TopPageAdvantage })
 	advantages: TopPageAdvantage;
 
-	@Prop()
+	@Prop({ index: 'text' })
 	seoText: string;
 
 	@Prop([String, { _id: false }])
 	tags: string[];
 
-	@Prop()
+	@Prop({ index: 'text' })
 	tagsTitle: string;
 
 	@Prop()
