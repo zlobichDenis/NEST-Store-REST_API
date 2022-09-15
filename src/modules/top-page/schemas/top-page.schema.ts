@@ -20,15 +20,17 @@ export class HhData {
 }
 
 export class TopPageAdvantage {
+	@Prop()
 	title: string;
+
+	@Prop()
 	description: string;
 }
 
 @Schema({ timestamps: true })
 export class TopPage {
-
 	@Prop({ enum: TopLevelCategory })
-	fistCategory: TopLevelCategory;
+	firstCategory: TopLevelCategory;
 
 	@Prop()
 	secondCategory: string;
@@ -42,13 +44,13 @@ export class TopPage {
 	@Prop()
 	category: string;
 
-	@Prop([TopPageAdvantage])
+	@Prop({ type: TopPageAdvantage })
 	advantages: TopPageAdvantage;
 
 	@Prop()
 	seoText: string;
 
-	@Prop([String])
+	@Prop([String, { _id: false }])
 	tags: string[];
 
 	@Prop()
