@@ -1,0 +1,10 @@
+version: '3'
+services:
+  top.api:
+    image: nest-store:latest
+    container_name: nest-store
+    restart: always
+    ports:
+      - 3000:3000
+    volumes:
+      - ./.env:/docker
