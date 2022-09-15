@@ -35,7 +35,25 @@ export class TopPageService {
 	}
 
 	async findByCategory(dto: FindTopPageDto) {
-		return this.topPageModule.find({ category: dto.firstCategory });
+		return this.topPageModule
+			.aggregate([
+				{
+					$match: {
+						firstCategory: dto.firstCategory,
+					},
+				},
+			])
+			.group({
+				_id: {
+					secondCategory: '$secondCategory',
+				},
+				pages: {
+					$push: {
+						alias: '$alias',
+						title: '$title',
+					},
+				},
+			});
 	}
 
 	async findByText(text: string) {
