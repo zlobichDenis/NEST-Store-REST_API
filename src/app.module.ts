@@ -8,6 +8,7 @@ import { ProductModule } from './modules/product/product.module';
 import { ReviewModule } from './modules/review/review.module';
 import { getMongoConfig } from './config/mongo.config';
 import { FilesModule } from './modules/files/files.module';
+import { TelegrafModule } from './modules/telegraf/telegraf.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { FilesModule } from './modules/files/files.module';
 		useFactory: getMongoConfig
 	}),
 	FilesModule,
+	TelegrafModule,
   ],
 })
 export class AppModule {}
