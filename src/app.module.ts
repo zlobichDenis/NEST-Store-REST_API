@@ -7,6 +7,7 @@ import { TopPageModule } from './modules/top-page/top-page.module';
 import { ProductModule } from './modules/product/product.module';
 import { ReviewModule } from './modules/review/review.module';
 import { getMongoConfig } from './config/mongo.config';
+import { FilesModule } from './modules/files/files.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { getMongoConfig } from './config/mongo.config';
 		inject: [ConfigService],
 		useFactory: getMongoConfig
 	}),
+	FilesModule,
   ],
 })
 export class AppModule {}
